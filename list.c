@@ -50,7 +50,16 @@ void * firstList(List * list) {
 }
 
 void * nextList(List * list) {
-    return NULL;
+
+    if(list->head == NULL){  //Lista vacia
+      list->current = NULL;
+      return NULL;
+    }
+  
+    void *dato = list->current->next->data;
+    list->current = list->current->next;
+      
+    return dato;
 }
 
 void * lastList(List * list) {
